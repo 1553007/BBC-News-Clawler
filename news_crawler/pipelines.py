@@ -6,7 +6,7 @@ from   scrapy.exceptions import DropItem
 from   scrapy import signals
 from   pydispatch import dispatcher
 from   scrapy.exporters import JsonItemExporter
-from   readability import Document
+from   readability.readability import Document
 from   scrapy.conf import settings
 from   datetime import datetime
 from   lxml import etree
