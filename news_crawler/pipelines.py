@@ -13,10 +13,26 @@ from   lxml import etree
 import geograpy
 import requests, html2text
 import pymongo, logging
+from bs4 import BeautifulSoup
+import re
 
 class NewsCrawlerPipeline(object):
     def process_item(self, item, spider):
         return item
+
+remove_words = [
+    "\\n",
+    "Media playback is unsupported on your device",
+    "Media caption",
+    "Image copyright",
+    "Getty Images",
+    "Images caption",
+    "Image caption",
+    "Read more",
+    "\"\"",
+    "\" \"",
+    "Bản quyền hình ảnh"
+    ]
 
 class NewsTextPipeline(object):
     '''
@@ -42,12 +58,23 @@ class NewsTextPipeline(object):
             content  = Document(doc.content()).summary()
             h = html2text.HTML2Text()
             h.ignore_links = True
-            articleText    =  h.handle(content)
-            articleText    =  articleText.replace('\r', ' ').replace('\n', ' ').strip()
-            item['newsText'] = articleText
-        except Exception:
-            raise DropItem("Failed to extract article text from: " + item['newsUrl'])
 
+            # articleText    =  h.handle(content)
+            # articleText    =  articleText.replace('\r', ' ').replace('\n', ' ').strip()
+            # articleText = re.sub(' +', ' ', articleText)
+            # articleText = re.sub('\\n', '', articleText)
+
+            soup = BeautifulSoup(content, "html.parser")
+            articleText2 = soup.get_text().replace(u'\xa0', u' ')
+            for word in remove_words:
+                articleText2 = articleText2.replace(word, "") 
+            articleText2 = articleText2.replace("\\'", "'") 
+            articleText2 = re.sub(" +", " ", articleText2) # remove spaces
+            
+            if (len(articleText2) >= 20):
+                item['newsText'] = articleText2
+        except Exception:
+            raise DropItem("Failed to extract article text from: " + item['newsUrl'])  
         return item
 
 class NewsCountriesMentionPipeline(object):
@@ -141,6 +168,11 @@ class MongoDBPipeline(object):
         if valid:
             self.collection.insert(dict(item))
             logging.info('News Article inserted to MongoDB database!')
+            with open("Output/bbc_vie.txt", "a", encoding='utf-8') as myfile:
+                sentences = list(map(str.strip, re.split(r"[.!?](?!$)", item['newsText'])))
+                for each_sentence in sentences:
+                    if (len(each_sentence) >= 20):
+                        myfile.write(each_sentence.lstrip() + ".\n")
         return item
 
 class JsonExportPipeline(object):
