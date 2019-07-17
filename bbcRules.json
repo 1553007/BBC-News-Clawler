@@ -1,11 +1,12 @@
 {
 	"allowed_domains" : ["bbc.com"],
+	"language": ["en"],
 	"start_urls": [
-		"https://www.bbc.com/vietnamese/"
+		"https://www.bbc.com/news/"
 	],
 	"rules": [
 		{
-			"allow": ["https://www.bbc.com/vietnamese/*"],
+			"allow": ["https://www.bbc.com/news/*"],
 			"follow": true,
 			"callback": "parseItems"
 		}

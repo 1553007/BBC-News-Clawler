@@ -75,7 +75,7 @@ class BbcSpider(CrawlSpider):
                 os.makedirs('Output/')
             self.urlFile = open(visitedUrlFile, 'a')
 
-    def __init__(self):
+    def __init__(self, lang=None, *args, **kwargs):
         '''
         DESCRIPTION:
         ------------
@@ -89,12 +89,24 @@ class BbcSpider(CrawlSpider):
         # Web pages of allowed_domains will be scraped only.
         self.allowed_domains = self.ruleFile['allowed_domains']
 
+
+        self.language = lang
+        self.ruleFile['language'] = lang
+
+        if (self.language == 'vn'):
+            self.ruleFile['start_urls'] = ["https://www.bbc.com/vietnamese/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/vietnamese/*"]
+        elif (self.language == 'zh'):
+            self.ruleFile['start_urls'] = ["https://www.bbc.com/zhongwen/simp/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/zhongwen/simp/*"]
+
         # URL to start web scraping.
         self.start_urls = self.ruleFile['start_urls']
 
         self.generateCrawlingRule()
         self.readVisitedURLS()
-        super(BbcSpider, self).__init__()
+
+        super(BbcSpider, self).__init__(*args, **kwargs)
 
     def getNewsAuthor(self,hxs):
         '''

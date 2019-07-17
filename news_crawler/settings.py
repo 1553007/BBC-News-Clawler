@@ -24,7 +24,7 @@ ITEM_PIPELINES = {
     'news_crawler.pipelines.DropIfEmptyPipeline': 400,
     'news_crawler.pipelines.DuplicatesPipeline': 500,
     'news_crawler.pipelines.MongoDBPipeline': 600,
-    'news_crawler.pipelines.JsonExportPipeline':800,
+    # 'news_crawler.pipelines.JsonExportPipeline':800,
 }
 
 #MongoDB settings

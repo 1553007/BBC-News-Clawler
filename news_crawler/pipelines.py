@@ -15,6 +15,7 @@ import requests, html2text
 import pymongo, logging
 from bs4 import BeautifulSoup
 import re
+import os
 
 class NewsCrawlerPipeline(object):
     def process_item(self, item, spider):
@@ -168,11 +169,22 @@ class MongoDBPipeline(object):
         if valid:
             self.collection.insert(dict(item))
             logging.info('News Article inserted to MongoDB database!')
-            with open("Output/bbc_vie.txt", "a", encoding='utf-8') as myfile:
-                sentences = list(map(str.strip, re.split(r"[.!?](?!$)", item['newsText'])))
-                for each_sentence in sentences:
-                    if (len(each_sentence) >= 20):
-                        myfile.write(each_sentence.lstrip() + ".\n")
+        
+        filename = "Output/bbc_en.txt"
+        if (spider.language == 'vn'):
+            filename = "Output/bbc_vn.txt"
+        elif (spider.language == 'zh'):
+            filename = "Output/bbc_zh.txt"
+
+        if not os.path.exists(filename):
+            os.mknod(filename)
+
+        myfile = open(filename, "a", encoding='utf-8')
+        sentences = list(map(str.strip, re.split(r"[.!?](?!$)", item['newsText'])))
+        for each_sentence in sentences:
+            if (len(each_sentence) >= 20):
+                myfile.write(each_sentence.lstrip() + ".\n")
+        myfile.close()
         return item
 
 class JsonExportPipeline(object):
