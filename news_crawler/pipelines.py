@@ -6,11 +6,11 @@ from   scrapy.exceptions import DropItem
 from   scrapy import signals
 from   pydispatch import dispatcher
 from   scrapy.exporters import JsonItemExporter
-from   readability import Document
+from   docx import Document
 from   scrapy.conf import settings
 from   datetime import datetime
 from   lxml import etree
-import geograpy
+# import geograpy
 import requests, html2text
 import pymongo, logging
 from bs4 import BeautifulSoup
@@ -96,18 +96,18 @@ class NewsCountriesMentionPipeline(object):
         --------
         News item with 'countriesMentioned' field updated is returned.
         '''
-        try:
-            places = geograpy.get_place_context(url=item['newsUrl'])
-            countryList = []
-            for country in places.country_mentions:
-                countryList.append(country[0].encode('ascii', 'ignore'))
-            item['countriesMentioned'] = countryList
-        except etree.XMLSyntaxError as e:
-            logging.info('XML Syntax Error' + e)
-        except etree.DocumentInvalid as e:
-            logging.info('XML Document Invalid Error'+ e)
-        except Exception:
-            raise DropItem("Failed to extract country mentions from: " + item['newsUrl'])
+        # try:
+        #     places = geograpy.get_place_context(url=item['newsUrl'])
+        #     countryList = []
+        #     for country in places.country_mentions:
+        #         countryList.append(country[0].encode('ascii', 'ignore'))
+        #     item['countriesMentioned'] = countryList
+        # except etree.XMLSyntaxError as e:
+        #     logging.info('XML Syntax Error' + e)
+        # except etree.DocumentInvalid as e:
+        #     logging.info('XML Document Invalid Error'+ e)
+        # except Exception:
+        #     raise DropItem("Failed to extract country mentions from: " + item['newsUrl'])
 
         return item
 
