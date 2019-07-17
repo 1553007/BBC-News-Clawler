@@ -29,8 +29,8 @@ remove_words = [
     "Images caption",
     "Image caption",
     "Read more",
-    "\"\"",
-    "\" \"",
+    "\"",
+    "\'",
     "Bản quyền hình ảnh"
     ]
 
