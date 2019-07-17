@@ -62,7 +62,12 @@ class BbcSpider(CrawlSpider):
         * 'Output/visited_urls.txt', keeps track of news URLS already
           scraped, in order to avoid scraping of same URL multiple times.
         '''
-        visitedUrlFile = 'Output/visited_urls.txt'
+        visitedUrlFile = 'Output/visited_urls_en.txt'
+        if (self.language == 'vn'):
+            visitedUrlFile = "Output/visited_urls_vn.txt"
+        elif (self.language == 'zh'):
+            visitedUrlFile = "Output/visited_urls_zh.txt"
+
         try:
             fileUrls = open(visitedUrlFile, 'r')
         except IOError:
