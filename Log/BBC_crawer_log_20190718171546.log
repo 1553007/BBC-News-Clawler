@@ -1,0 +1,1242 @@
+2019-07-18 17:15:47 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: news_crawler)
+2019-07-18 17:15:47 [scrapy.utils.log] INFO: Versions: lxml 4.3.4.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.1, Python 3.7.2 (tags/v3.7.2:9a3ffc0492, Dec 23 2018, 23:09:28) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1c  28 May 2019), cryptography 2.7, Platform Windows-10-10.0.18362-SP0
+2019-07-18 17:15:47 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'news_crawler', 'LOG_FILE': 'Log/BBC_crawer_log_20190718171546.log', 'NEWSPIDER_MODULE': 'news_crawler.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['news_crawler.spiders']}
+2019-07-18 17:15:47 [scrapy.extensions.telnet] INFO: Telnet Password: 08e993259ac16f09
+2019-07-18 17:15:47 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-07-18 17:15:47 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-07-18 17:15:47 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-07-18 17:15:49 [scrapy.middleware] INFO: Enabled item pipelines:
+['news_crawler.pipelines.NewsCrawlerPipeline',
+ 'news_crawler.pipelines.NewsTextPipeline',
+ 'news_crawler.pipelines.DropIfEmptyPipeline',
+ 'news_crawler.pipelines.DuplicatesPipeline',
+ 'news_crawler.pipelines.MongoDBPipeline']
+2019-07-18 17:15:49 [scrapy.core.engine] INFO: Spider opened
+2019-07-18 17:15:49 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-07-18 17:15:49 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-07-18 17:15:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/robots.txt> (referer: None)
+2019-07-18 17:15:49 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://www.bbc.com/vietnamese/business> from <GET https://www.bbc.com/vietnamese/business/>
+2019-07-18 17:15:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business> (referer: None)
+2019-07-18 17:15:54 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://www.bbc.com/vietnamese/business#orb-footer> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2019-07-18 17:15:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business#page> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48817562> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48843292> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:55 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business
+2019-07-18 17:15:55 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:15:56 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business HTTP/1.1" 200 30921
+2019-07-18 17:15:57 [py.warnings] WARNING: C:\Users\Lumos\AppData\Local\Programs\Python\Python37\lib\site-packages\readability\htmls.py:117: FutureWarning: The behavior of this method will change in future versions. Use specific 'len(elem)' or 'elem is not None' test instead.
+  raw_html = str_(tostring(doc.body or doc))
+
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - li.follow-us__list-item.follow-us__list-item--social>a.follow-us__list-item-link.follow-us__list-item-link--twitter
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - a.follow-us__list-item-link>span.follow-us__list-item-icon.svg-icon.svg-icon--large.svg-icon--rss
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.950 .eagle-item.faux-block-link>.eagle-item__body link density 0.305 -> 22.906
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.475 .eagle>.eagle-item.faux-block-link link density 0.373 ->  4.059
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.770 .eagle-item.faux-block-link>.eagle-item__body link density 0.349 -> 21.339
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.385 .eagle>.eagle-item.faux-block-link link density 0.415 ->  3.733
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.110 .eagle-item.faux-block-link>.eagle-item__body link density 0.301 -> 23.828
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.055 .eagle>.eagle-item.faux-block-link link density 0.378 ->  4.385
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.230 .eagle-item.faux-block-link>.eagle-item__body link density 0.314 -> 22.782
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.615 .eagle>.eagle-item.faux-block-link link density 0.401 ->  3.965
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.890 .eagle-item.faux-block-link>.eagle-item__body link density 0.369 -> 20.746
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.445 .eagle>.eagle-item.faux-block-link link density 0.449 ->  3.553
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 36.310 .eagle-item.faux-block-link>.eagle-item__body link density 0.276 -> 26.277
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  8.155 .eagle>.eagle-item.faux-block-link link density 0.355 ->  5.260
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.310 .eagle-item.faux-block-link>.eagle-item__body link density 0.292 -> 24.297
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.155 .eagle>.eagle-item.faux-block-link link density 0.375 ->  4.469
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.180 .eagle-item.faux-block-link>.eagle-item__body link density 0.359 -> 21.280
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.590 .eagle>.eagle-item.faux-block-link link density 0.453 ->  3.607
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.880 .eagle-item.faux-block-link>.eagle-item__body link density 0.348 -> 21.451
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.440 .eagle>.eagle-item.faux-block-link link density 0.422 ->  3.725
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.220 .eagle-item.faux-block-link>.eagle-item__body link density 0.314 -> 22.775
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.610 .eagle>.eagle-item.faux-block-link link density 0.401 ->  3.962
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.770 .eagle-item.faux-block-link>.eagle-item__body link density 0.337 -> 23.043
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.385 .eagle>.eagle-item.faux-block-link link density 0.401 ->  4.425
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.390 .eagle-item.faux-block-link>.eagle-item__body link density 0.247 -> 25.904
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.195 .eagle>.eagle-item.faux-block-link link density 0.319 ->  4.899
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.920 .eagle-item.faux-block-link>.eagle-item__body link density 0.355 -> 21.867
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.960 .eagle>.eagle-item.faux-block-link link density 0.435 ->  3.935
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.280 .eagle-item.faux-block-link>.eagle-item__body link density 0.309 -> 23.676
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.140 .eagle>.eagle-item.faux-block-link link density 0.397 ->  4.306
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.590 .eagle-item.faux-block-link>.eagle-item__body link density 0.245 -> 26.111
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.295 .eagle>.eagle-item.faux-block-link link density 0.324 ->  4.928
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.130 .eagle-item.faux-block-link>.eagle-item__body link density 0.327 -> 22.287
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.565 .eagle>.eagle-item.faux-block-link link density 0.412 ->  3.858
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.020 .eagle-item.faux-block-link>.eagle-item__body link density 0.335 -> 22.625
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.010 .eagle>.eagle-item.faux-block-link link density 0.416 ->  4.095
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 35.040 .eagle-item.faux-block-link>.eagle-item__body link density 0.294 -> 24.724
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.520 .eagle>.eagle-item.faux-block-link link density 0.365 ->  4.773
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.380 .eagle-item.faux-block-link>.eagle-item__body link density 0.267 -> 25.202
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.190 .eagle>.eagle-item.faux-block-link link density 0.346 ->  4.702
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.150 .eagle-item.faux-block-link>.eagle-item__body link density 0.332 -> 22.150
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.575 .eagle>.eagle-item.faux-block-link link density 0.419 ->  3.823
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 26.277 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 26.111 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 25.904 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 25.202 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 24.724 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removed 26.277 .eagle-item__body>ul.mini-info-list with weight 0 cause it has too short content length 19 without a single image.
+2019-07-18 17:15:57 [readability.readability] DEBUG: Not removing div{01}>.eagle-item__body of length 208: \n \n \n \n \n Jeff Bezos xây dựng đế ch...
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removed  0.000 body>div{01} with weight 0 cause it has too many links 0.303 for its weight 0.
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.950 .eagle-item.faux-block-link>.eagle-item__body link density 0.305 -> 22.906
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.475 .eagle>.eagle-item.faux-block-link link density 0.373 ->  4.059
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.770 .eagle-item.faux-block-link>.eagle-item__body link density 0.349 -> 21.339
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.385 .eagle>.eagle-item.faux-block-link link density 0.415 ->  3.733
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.110 .eagle-item.faux-block-link>.eagle-item__body link density 0.301 -> 23.828
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.055 .eagle>.eagle-item.faux-block-link link density 0.378 ->  4.385
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.230 .eagle-item.faux-block-link>.eagle-item__body link density 0.314 -> 22.782
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.615 .eagle>.eagle-item.faux-block-link link density 0.401 ->  3.965
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.890 .eagle-item.faux-block-link>.eagle-item__body link density 0.369 -> 20.746
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.445 .eagle>.eagle-item.faux-block-link link density 0.449 ->  3.553
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 36.310 .eagle-item.faux-block-link>.eagle-item__body link density 0.276 -> 26.277
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  8.155 .eagle>.eagle-item.faux-block-link link density 0.355 ->  5.260
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.310 .eagle-item.faux-block-link>.eagle-item__body link density 0.292 -> 24.297
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.155 .eagle>.eagle-item.faux-block-link link density 0.375 ->  4.469
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.180 .eagle-item.faux-block-link>.eagle-item__body link density 0.359 -> 21.280
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.590 .eagle>.eagle-item.faux-block-link link density 0.453 ->  3.607
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 32.880 .eagle-item.faux-block-link>.eagle-item__body link density 0.348 -> 21.451
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.440 .eagle>.eagle-item.faux-block-link link density 0.422 ->  3.725
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.220 .eagle-item.faux-block-link>.eagle-item__body link density 0.314 -> 22.775
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.610 .eagle>.eagle-item.faux-block-link link density 0.401 ->  3.962
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.770 .eagle-item.faux-block-link>.eagle-item__body link density 0.337 -> 23.043
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.385 .eagle>.eagle-item.faux-block-link link density 0.401 ->  4.425
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.390 .eagle-item.faux-block-link>.eagle-item__body link density 0.247 -> 25.904
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.195 .eagle>.eagle-item.faux-block-link link density 0.319 ->  4.899
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.920 .eagle-item.faux-block-link>.eagle-item__body link density 0.355 -> 21.867
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.960 .eagle>.eagle-item.faux-block-link link density 0.435 ->  3.935
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.280 .eagle-item.faux-block-link>.eagle-item__body link density 0.309 -> 23.676
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.140 .eagle>.eagle-item.faux-block-link link density 0.397 ->  4.306
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.590 .eagle-item.faux-block-link>.eagle-item__body link density 0.245 -> 26.111
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.295 .eagle>.eagle-item.faux-block-link link density 0.324 ->  4.928
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.130 .eagle-item.faux-block-link>.eagle-item__body link density 0.327 -> 22.287
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.565 .eagle>.eagle-item.faux-block-link link density 0.412 ->  3.858
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.020 .eagle-item.faux-block-link>.eagle-item__body link density 0.335 -> 22.625
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.010 .eagle>.eagle-item.faux-block-link link density 0.416 ->  4.095
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 35.040 .eagle-item.faux-block-link>.eagle-item__body link density 0.294 -> 24.724
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.520 .eagle>.eagle-item.faux-block-link link density 0.365 ->  4.773
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 34.380 .eagle-item.faux-block-link>.eagle-item__body link density 0.267 -> 25.202
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  7.190 .eagle>.eagle-item.faux-block-link link density 0.346 ->  4.702
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch 33.150 .eagle-item.faux-block-link>.eagle-item__body link density 0.332 -> 22.150
+2019-07-18 17:15:57 [readability.readability] DEBUG: Branch  6.575 .eagle>.eagle-item.faux-block-link link density 0.419 ->  3.823
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 26.277 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 26.111 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 25.904 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 25.202 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] INFO: Top 5 : 24.724 .eagle-item.faux-block-link>.eagle-item__body
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removed 26.277 .eagle-item__body>ul.mini-info-list with weight 0 cause it has too short content length 19 without a single image.
+2019-07-18 17:15:57 [readability.readability] DEBUG: Not removing div{01}>.eagle-item__body of length 208: \n \n \n \n \n Jeff Bezos xây dựng đế ch...
+2019-07-18 17:15:57 [readability.readability] DEBUG: Removed  0.000 body>div{01} with weight 0 cause it has too many links 0.303 for its weight 0.
+2019-07-18 17:15:57 [scrapy.core.scraper] ERROR: Error processing {'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Kinh t - BBC News Ting Vit',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business'}
+Traceback (most recent call last):
+  File "C:\Users\Lumos\AppData\Local\Programs\Python\Python37\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "D:\ThanhDu\Data\BBC_NEWS_CRAWLER\news_crawler\pipelines.py", line 136, in process_item
+    or (not item['newsText']) or (not item['author'])):
+  File "C:\Users\Lumos\AppData\Local\Programs\Python\Python37\lib\site-packages\scrapy\item.py", line 59, in __getitem__
+    return self._values[key]
+KeyError: 'newsText'
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48908528> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48992711> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48891560> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48928414> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48868388> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-49004126> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48881891> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:15:58 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48817562
+2019-07-18 17:15:58 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:15:59 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48817562 HTTP/1.1" 200 33552
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:00 [readability.readability] DEBUG: Branch 128.890 .story-body>.story-body__inner link density 0.062 -> 120.952
+2019-07-18 17:16:00 [readability.readability] DEBUG: Branch 79.445 .column--primary>.story-body link density 0.060 -> 74.646
+2019-07-18 17:16:00 [readability.readability] DEBUG: Branch  7.230 .fb-post>blockquote.fb-xfbml-parse-ignore link density 0.194 ->  5.827
+2019-07-18 17:16:00 [readability.readability] DEBUG: Branch 32.115 .embed-region.facebook-wrap>.fb-post link density 0.194 -> 25.881
+2019-07-18 17:16:00 [readability.readability] DEBUG: Branch  7.270 .embed.embed-facebook>.embed-region.facebook-wrap link density 0.282 ->  5.218
+2019-07-18 17:16:00 [readability.readability] DEBUG: Branch  6.135 .social-embed-post.social-embed-facebook>.embed.embed-facebook link density 0.276 ->  4.444
+2019-07-18 17:16:00 [readability.readability] INFO: Top 5 : 120.952 .story-body>.story-body__inner
+2019-07-18 17:16:00 [readability.readability] INFO: Top 5 : 74.646 .column--primary>.story-body
+2019-07-18 17:16:00 [readability.readability] INFO: Top 5 : 25.881 .embed-region.facebook-wrap>.fb-post
+2019-07-18 17:16:00 [readability.readability] INFO: Top 5 :  5.827 .fb-post>blockquote.fb-xfbml-parse-ignore
+2019-07-18 17:16:00 [readability.readability] INFO: Top 5 :  5.218 .embed.embed-facebook>.embed-region.facebook-wrap
+2019-07-18 17:16:00 [readability.readability] DEBUG: Not removing .embed-region.facebook-wrap>.fb-post of length 170: It’s done ! A major step in our partners...
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removed  4.444 .embed.embed-facebook>.embed-region.facebook-wrap with weight 0 cause it has too many links 0.282 for its weight 0.
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removed  0.000 .social-embed-post.social-embed-facebook>.embed.embed-facebook with weight 0 cause it has too short content length 5 without a single image.
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removed  0.000 .social-embed>.social-embed-post.social-embed-facebook with weight 25 cause it has too short content length 5 without a single image.
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removed 120.952 .story-body__inner>.social-embed with weight 0 cause it has too short content length 2 without a single image.
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removed 120.952 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:00 [readability.readability] DEBUG: Removed 120.952 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:25 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48817562>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'EU v Vit Nam k hip nh thng mi t do v bo h u t - BBC News Tin'
+                 b'g Vit',
+ 'newsText': ' Liên minh Châu Âu lễ ký Hiệp định Thương mại Tự do (EVFTA) và '
+             'Hiệp định Bảo hộ Đầu tư với Việt Nam (EVIPA). Đây là thỏa thuận '
+             'mậu dịch tự do thứ hai EU ký với một nước tại Đông Nam Á, trước '
+             'đó là Singapore. Sự kiện diễn ra tại Văn phòng Chính phủ nơi '
+             'phía EU cử Đại diện Hội đồng EU Stefan-Radu Oprea và bà Cecilia '
+             'Malmstrom, Cao uỷ Thương mại EU sang Việt Nam. Bàn tròn BBC: Chế '
+             'tài nào bảo đảm VN thi hành đúng EVFTA ký với EU?Thủ tướng '
+             'Nguyễn Xuân Phúc được dẫn lời nói FTA và IPA sẽ như một đường '
+             'cao tốc quy mô lớn giúp đẩy nhanh tốc độ và quy mô hợp tác, '
+             'thương mại và đầu tư giữa Việt Nam và EU. Thỏa thuận trong EVFTA '
+             'được kỳ vọng sẽ xóa thuế nhập khẩu cho nhiều hàng hóa giao dịch, '
+             'trong khi phần còn lại sẽ nhận ưu đãi thuế quan theo hạn ngạch '
+             'theo lộ trình riêng. Được biết Việt Nam sẽ giảm 49% thuế nhập '
+             'khẩu đối với hàng EU ngay khi EVFTA có hiệu lực và phần còn lại '
+             'sẽ được xóa trong giai đoạn 10 năm. Để đổi lại hàng Việt Nam '
+             'xuất khẩu sang EU sẽ được giảm 85% thuế quan với lộ trình để xóa '
+             'thuế nhập khẩu còn lại là 7 năm, theo AP. Thỏa thuận này là rất '
+             'quan trọng cho Việt Nam, kinh tế gia Phạm Chi Lan nói với AP. '
+             'Một mặt nó sẽ thúc giục đất nước thay đổi thể chế để phù hợp với '
+             'các điều khoản của thỏa thuận. Mặt khác sẽ giúp thúc đẩy nền '
+             'kinh tế, đặc biệt là kinh tế vực tư nhân. Việt Nam xuất khẩu '
+             'sang EU các mặt hàng như điện thoại, giày dép và hàng may mặc '
+             'trong khi nhập từ các nước EU máy móc công nghệ cao, máy bay, xe '
+             'và thuốc men. Sau khi EU và Việt Nam ký, thỏa thuận phải đệ '
+             'trình cho Nghị viện châu Âu chuẩn thuận. Nếu Nghị viện châu Âu '
+             'cũng thông qua, thỏa thuận thương mại sẽ được Hội đồng châu Âu '
+             'duyệt lần chót để đi vào hiệu lực. Ủy ban châu Âu ca ngợi việc '
+             'thông qua EVFTAHiệp định Thương mại Việt Nam – EU ký ngày '
+             '30/6Sau lễ ký kết, Đại sứ Liên minh Châu Âu tại Việt Nam Bruno '
+             'Angelet viết trên Facebook:Đã xong! Một bước mới trong quan hệ '
+             'đối tác của chúng ta: FTA qui mô nhất từ trước tới nay với Việt '
+             'Nam và là thỏa thuận tham vọng nhất của EU tại Đông Nam Á, một '
+             'bước quan trọng cho nhân dân và tương lai chung của chúng ta. '
+             'Trong giai đoạn khó dự đoán, các nỗ lực chung để thúc đẩy nhà '
+             'nước pháp quyền trong đầu tư và mậu dịch, thúc đẩy phát triển '
+             'bền vững, mậu dịch tự do nhưng công bằng không phải là điều gì '
+             'xa xỉ: đó là trách nhiệm của tất cả. Trả lời phỏng vấn với phóng '
+             'viên BBC Nguyễn Hoàng của BBC hồi tháng 3/2019 tại Hà Nội, ông '
+             'Angelet nói EVFTA quan trọng vì nó giúp phát huy vị thế cạnh '
+             'tranh của Việt Nam, và hội nhập kinh tế Việt Nam vào thương mại '
+             'thế giới cũng như kết nối thị trường châu Âu với thị trường Việt '
+             'Nam. Nó EVFTA còn giúp tăng sức hấp dẫn của Việt Nam trong và '
+             'ngoài ASEAN, vì đây không chỉ là hiệp định thương mại giữa EU '
+             'với Việt Nam mà còn là chiến lược phát triển của EU với cả châu '
+             'Á, ông Bruno Angelet nói thêm. Ông Angelet khi đó nói thông qua '
+             'thương mại, EU cũng mong muốn có thể bảo vệ quyền của người lao '
+             'động ở cả châu Âu và Việt Nam. Về cơ bản, chúng tôi làm việc với '
+             'cả hai bên để thông qua quy ước chung của Tổ chức Lao động Thế '
+             'giới (ILO), và sau đó thực hiện quy ước này tại Việt Nam và châu '
+             'Âu. Chúng tôi cũng tôn trọng các tiêu chuẩn về lao động. Chúng '
+             'tôi muốn đảm bảo rằng các doanh nghiệp châu Âu có thể cạnh tranh '
+             'công bằng với các doanh nghiệp tư nhân hay nhà nước tại Việt '
+             'Nam, nghĩa là không có sự phân biệt đối xử nào giữa các doanh '
+             'nghiệp châu Âu với các doanh nghiệp nhà nước Việt Nam. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48817562'}
+2019-07-18 17:16:25 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48843292
+2019-07-18 17:16:25 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:26 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48843292 HTTP/1.1" 200 33251
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:26 [readability.readability] DEBUG: Branch 126.230 .story-body>.story-body__inner link density 0.057 -> 119.072
+2019-07-18 17:16:26 [readability.readability] DEBUG: Branch 78.115 .column--primary>.story-body link density 0.055 -> 73.782
+2019-07-18 17:16:26 [readability.readability] INFO: Top 5 : 119.072 .story-body>.story-body__inner
+2019-07-18 17:16:26 [readability.readability] INFO: Top 5 : 73.782 .column--primary>.story-body
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removed 119.072 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:26 [readability.readability] DEBUG: Removed 119.072 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:42 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48843292>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Fitch ngng nh gi Vingroup v ng Phm Nht Vng ch ng dng - BBC N'
+                 b'ews Ting Vit',
+ 'newsText': ' Hãng xếp hạng tín nhiệm Fitch Ratings sẽ ngừng đánh giá với '
+             'Vingroup vì tập đoàn tư nhân Việt Nam dừng tham gia vào quá '
+             'trình đánh giá. Fitch cho hay lý do của việc này là do Vingroup '
+             'lựa chọn không tiếp tục tham gia vào quá trình đánh giá xếp hạng '
+             'và do đó cơ quan xếp hạng quốc tế này sẽ không có đủ thông tin. '
+             'Hệ quả là Fitch sẽ không còn cung cấp đánh giá xếp hạng hoặc '
+             'phân tích cho Vingroup, thông báo của cơ quan quốc tế có trụ sở '
+             'tại cả Mỹ và Anh nói. Fitch là một trong ba tổ chức uy tín hàng '
+             'đầu thế giới về đánh giá xếp hạng tín nhiệm bên cạnh S&P và '
+             "Moody's. Trong lần xếp hạng cuối cùng, tập đoàn của tỷ phú Phạm "
+             'Nhật Vượng được xếp ở mức B+ với triển vọng tiêu cựcVingroup và '
+             'tỉ phú Phạm Nhật Vượng: Ngưỡng mộ, lo ngạiChủ tịch SK Group gặp '
+             'lãnh đạo Vingroup và MasanThủ tướng Việt Nam thăm kỳ tích ô tô '
+             'VinFastViệt Nam được gì khi tổ chức đua xe F1?Hôm thứ Ba, chuyên '
+             'trang về đầu tư tài chính Vietnam Finance thuộc Hiệp hội doanh '
+             'nghiệp đầu tư nước ngoài (VAFIE) của Việt Nam dẫn lời một quan '
+             'chức của Vingroup, ông Nguyễn Việt Quang - Phó Chủ tịch kiêm '
+             'Tổng giám đốc tập đoàn, xác nhận thông tin trên:Theo nhìn nhận '
+             'của ông Quang, đầu tư vào lĩnh vực ô tô có độ rủi ro cao nên '
+             'việc các tổ chức đánh giá tín nhiệm hạ bậc là chuyện không tránh '
+             'khỏi. Các chuẩn mực xếp hạng tín dụng là như thế, nếu không muốn '
+             'bị hạ bậc chỉ có cách duy nhất là không thực hiện dự án này, '
+             'Vietnam Finance dẫn lời quan chức Vingroup cho hay. Không ảnh '
+             'hưởng?Vẫn theo Vietnam Finance, quan chức của Vingroup cho hay '
+             'việc hạ triển vọng xếp hạng này không ảnh hưởng tới hình ảnh '
+             'công ty:Bởi theo ông, ngoài việc hạ triển vọng xếp hạng, '
+             'Vingroup vẫn được Fitch duy trì xếp hạng ở mức B+, tỷ lệ vay '
+             'trên tổng tài sản vẫn an toàn và Fitch vẫn đang dành những đánh '
+             'giá tích cực cho mảng kinh doanh khác của tập đoàn này, Phó Chủ '
+             'tịch, kiêm Tổng giám đốc Vingroup được dẫn lời nói. Cùng hôm '
+             '02/7, báo điện tử Zing, chuyên mục Kinh doanh, cho biết thêm chi '
+             'tiết về diễn biến:Lần gần nhất Fitch công bố kết quả đánh giá '
+             'xếp hạng tín nhiệm với Vingroup là vào đầu tháng 10/2018, chỉ '
+             'vài ngày sau khi Vingroup ra mắt thương hiệu xe hơi VinFast tại '
+             'triển lãm Paris Motor Show. Khi đó, Vingroup được Fitch giữ '
+             'nguyên mức xếp hạng ở B+ nhưng triển vọng xếp hạng bị điều chỉnh '
+             'từ ổn định xuống mức tiêu cực. Theo Fitch, triển vọng tiêu cực '
+             'của Vingroup phản ánh nhiều rủi ro hơn trong hoạt động kinh '
+             'doanh của tập đoàn này vì các khoản vay vốn để tài trợ cho lĩnh '
+             'vực sản xuất ôtô của Vingroup. Theo Fitch, Vingroup đã tài trợ '
+             'vốn góp của mình vào VinFast, bằng cách giảm đầu tư vào hoạt '
+             'động kinh doanh bất động sản có tính thanh khoản cao. Trong khi '
+             'đó, Vingroup không có nhiều chuyên môn và kinh nghiệm trong lĩnh '
+             'vực sản xuất ôtô. Tuy nhiên, Vingroup đã tuyển dụng nhiều chuyên '
+             'gia dày dặn kinh nghiệm trong lĩnh vực ôtô để giảm thiểu rủi ro, '
+             'Zing cho biết thêm. Trong một diễn biến độc lập, tuần rồi, The '
+             'Financial Times có bài viết về tập đoàn tư nhân đa lĩnh vực hàng '
+             'đầu của Việt Nam, trong đó, ký giả chuyên về Đông Nam Á John '
+             'Reed, trưởng văn phòng Bangkok của tờ báo Anh, gọi Vingroup là '
+             'một đế chế đang trỗi dậy nhưng cũng hàm chứa nhiều dấu hỏi về sự '
+             'cất cánh này. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48843292'}
+2019-07-18 17:16:42 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48908528
+2019-07-18 17:16:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:43 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48908528 HTTP/1.1" 200 34841
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:43 [readability.readability] DEBUG: Branch  7.330 figure.media-with-caption>.player-with-placeholder link density 0.000 ->  7.330
+2019-07-18 17:16:43 [readability.readability] DEBUG: Branch -23.835 .story-body__inner>figure.media-with-caption link density 0.000 -> -23.835
+2019-07-18 17:16:43 [readability.readability] DEBUG: Branch 118.370 .story-body>.story-body__inner link density 0.001 -> 118.198
+2019-07-18 17:16:43 [readability.readability] DEBUG: Branch 74.185 .column--primary>.story-body link density 0.001 -> 74.079
+2019-07-18 17:16:43 [readability.readability] INFO: Top 5 : 118.198 .story-body>.story-body__inner
+2019-07-18 17:16:43 [readability.readability] INFO: Top 5 : 74.079 .column--primary>.story-body
+2019-07-18 17:16:43 [readability.readability] INFO: Top 5 :  7.330 figure.media-with-caption>.player-with-placeholder
+2019-07-18 17:16:43 [readability.readability] INFO: Top 5 : -23.835 .story-body__inner>figure.media-with-caption
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removed 118.198 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removed 118.198 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:43 [readability.readability] DEBUG: Removed  7.330 .player-with-placeholder>.player-with-placeholder with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:43 [readability.readability] DEBUG: Not removing figure.media-with-caption>.player-with-placeholder of length 44: \n \n Máy của bạn không hỗ trợ nghe xem\...
+2019-07-18 17:16:44 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48908528>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Vit Nam: Cn minh bch ti sn trc khi c phn ha - BBC News Ting '
+                 b'Vit',
+ 'newsText': ' Đại diện Bộ Tài chính Việt Nam nói với BBC về khẩu vị của các '
+             'nhà đầu tư Anh khi tham gia cổ phần hóa DNNN. Trả lời phỏng vấn '
+             'với Nguyễn Hoàng của BBC Tiếng Việt bên lề một hội nghị kêu gọi '
+             'đầu tư vào Việt Nam mới đây ở London, ông Đặng Quyết Tiến, Cục '
+             'trưởng Cục Tài chính Doanh nghiệp, Bộ Tài chính Việt Nam, cũng '
+             'nói về l\u200eý do tiến độ cổ phần hóa doanh nghiệp nhà nước lớn '
+             'bị chậm. Đặng Quyết Tiến: Tới London lần này, chúng tôi muốn kết '
+             'nối các nhà đầu tư Anh Quốc với kế hoạch cổ phần hóa các tổng '
+             'công ty lớn ở Việt Nam đang hoạt động hiệu quả và có tiềm năng. '
+             'Lần tiếp xúc này với các nhà đầu tư Anh Quốc thì chúng tôi lắng '
+             'nghe để biết khẩu vị của họ thế nào để chúng ta chuẩn bị để họ '
+             'thấy hợp với khẩu vị của họ để tiến tới việc họ tham gia vào các '
+             'dự án cổ phần hóa. Chúng tôi thấy có ba vấn đề họ quan tâm. Thứ '
+             'nhất là cơ chế trao đổi thông tin và chính sách của chính phủ '
+             'phải rõ ràng. Thứ hai là tăng cường công khai minh bạch thông '
+             'tin và đổi mới quản trị của các doanh nghiệp nhà nước. Vấn đề '
+             'thứ ba là tỉ lệ bán ra thị trường là phải lớn. Công khai minh '
+             'bạch và đổi mới quản trị doanh nghiệp là những điều kiện bắt '
+             'buộc và chính phủ đang kiên quyết làm nghiêm vấn đề này và có '
+             'thể coi là kỷ luật sắt với lãnh đạo các doanh nghiệp. Quyết tâm '
+             'của chính phủ Việt Nam thì cũng đã lên được danh mục công khai '
+             'và tỉ lệ bán đã được công khai, nhưng quan trọng hơn là tỉ lệ '
+             'bán chưa đến được các nhà đầu tư . Tức là chính phủ và doanh '
+             'nghiệp không nên thụ động đứng ở Việt Nam rồi mong người ta đến '
+             'mà phải chủ động đưa ra thông điệp tại các hội nghị xúc tiến đầu '
+             'tư như thế này tại Anh. Tức là nếu chúng ta có hàng và hàng của '
+             'chúng ta mà tốt thì phải đi chào mời và phải coi khẩu vị của bạn '
+             'là trách nhiệm của mình thì thành công của cả hai phía mới gặp '
+             'nhau. BBC: Dường như đất đai của doanh nghiệp nhà nước vẫn là '
+             'mảng gây chậm trễ trong tiến tình cổ phần hóa?Đặng Quyết Tiến: '
+             'Chính quyền địa phương và các bộ ngành phải thực hiện nghiêm qui '
+             'định của Luật Đất đai. Phải rà soát lại tài sản ở dạng đất đai '
+             'mà doanh nghiệp nắm giữ để những tài sản nào mà doanh nghiệp '
+             'chưa cần dùng hay dùng sai mục đích thì phải trả lại cho chính '
+             'quyền địa phương để đấu giá, để các thành phần kinh tế khác tiếp '
+             'cận. Tức là phải công bố công khai phương án sử dụng đất trước '
+             'khi thực hiện cổ phần hóa, đây là việc làm cần thiết để đảm bảo '
+             'tính minh bạch về tài sản trước khi cổ phần hóa. Tuy nhiên đất '
+             'đai thì là vấn đề phức tạp vì liên quan tới quá trình lịch sử, '
+             'các loại giấy chứng nhận, chứng từ vân vân nên không thể nhanh '
+             'được. Cho nên có những doanh nghiệp có qui mô đất đai lớn thì họ '
+             'phải mất tới cả năm để chuẩn bị. Tiến độ cổ phần hóa trong nước '
+             'hiện nay rất chậm vì các tổng công ty lớn này mà lên thị trường '
+             'cùng lúc thì sẽ có tình trạng cung lớn hơn cầu thì không hiệu '
+             'quả. BBC: Việc định giá tài sản các tổng công ty hay tập đoàn '
+             'nhà nước lớn được thực hiện thế nào để đảm bảo độ chuẩn xác?Đặng '
+             'Quyết Tiến: Về vấn đề định giá công ty nhà nước thì dịch vụ định '
+             'giá ở trong nước là chưa đáp ứng được . Ví dụ định giá các ngành '
+             'như viễn thông thì định giá như thế nào. Để định giá các doanh '
+             'nghiệp lớn như vậy thì đòi hỏi phải có doanh nghiệp thẩm định '
+             'ham hiểu và có kinh nghiệm hơn. Có những doanh nghiệp nếu định '
+             'giá trong nước thì nó là to nhất trong cả nước nhưng nếu định '
+             'giá theo thị trường khu vực thì phải so với khu vực là các doanh '
+             'nghiệp của các nước thì đòi hỏi phải có các tổ chức tư vấn định '
+             'giá quốc tế và chúng tôi đang kêu gọi các tổ chức như vậy tham '
+             'gia để đảm bảo việc định giá sát thực và hiệu quả hơn. BBC: Tại '
+             'sao có những doanh nghiệp lớn như Sabeco nhưng dường như có quá '
+             'ít bên muốn mua?Đặng Quyết Tiến: Nếu đứng nhìn bên ngoài thì '
+             'tưởng chỉ có một người mua. Nhưng thực ra có một số công ty quan '
+             'tâm nhưng vì giá không phù hợp nên họ rút lui khi tổ chức đấu '
+             'giá. Tôi đã trực tiếp gặp những doanh nghiệp về bia quan tâm và '
+             'có hỏi tại sao các anh không đi đến cùng thì họ nói giá là hơi '
+             'cao. Do đó chúng tôi đang nghiên cứu chào bán theo phương thức '
+             'dựng sổ, book building, (để thực hiện phát hành lần đầu ra công '
+             'chúng), để làm sao mức giá và khối lượng sát với nhau hơn. '
+             'Thương vụ Sabeco cũng một phần chúng tôi làm theo dựng sổ có '
+             'điều chỉnh. Và thương vụ này đã để lại cho các nhà quản l\u200eý '
+             'phía Việt Nam bài học qu\u200e\u200eý giá trong việc bán doanh '
+             'nghiệp có qui mô lớn. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48908528'}
+2019-07-18 17:16:44 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48992711
+2019-07-18 17:16:44 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:45 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48992711 HTTP/1.1" 200 33455
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:45 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:46 [readability.readability] DEBUG: Branch 133.190 .story-body>.story-body__inner link density 0.044 -> 127.273
+2019-07-18 17:16:46 [readability.readability] DEBUG: Branch 81.595 .column--primary>.story-body link density 0.044 -> 78.043
+2019-07-18 17:16:46 [readability.readability] INFO: Top 5 : 127.273 .story-body>.story-body__inner
+2019-07-18 17:16:46 [readability.readability] INFO: Top 5 : 78.043 .column--primary>.story-body
+2019-07-18 17:16:46 [readability.readability] DEBUG: Removed 127.273 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:46 [readability.readability] DEBUG: Removed 127.273 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:46 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48992711>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Vinhomes: Lnh o lin tc thay i v p lc cng vic? - BBC News Tin'
+                 b'g Vit',
+ 'newsText': ' Vinhomes, thuộc tập đoàn Vingroup, có một loạt thay đổi các vị '
+             'trí quản l\u200eý chủ chốt trong vòng nửa năm. Công ty Cổ phần '
+             'Vinhomes hôm 15/07 ra quyết định miễn nhiệm chức danh Phó Tổng '
+             'Giám đốc thường trực đối với bà Đào Thị Thiên Hương. Bà Hương '
+             'được bổ nhiệm vào vị trí này từ tháng 1 năm nay, tức là mới ngồi '
+             'ghế này được khoảng 6 tháng, thay cho ông Phạm Thiếu Hoa. Bà '
+             'Hương được mô tả là từng giữ các vị trí quan trọng liên quan '
+             'lĩnh vực tài chính, kiểm toán trong các doanh nghiệp lớn như '
+             'Vietjet Air, Tập đoàn Sovico, Công ty kiểm toán PwC. Hồi tháng 5 '
+             'năm nay, Vinhomes thay Tổng giám đốc (CEO) bà Lưu Thị Ánh Xuân '
+             'chỉ sau hơn 3 tháng bà được bổ nhiệm vào ghế này với nhiệm kỳ 5 '
+             'năm. Được chọn thay bà Ánh Xuân khi đó là ông Phạm Thiếu Hoa, '
+             'người được mô tả là đã gắn bó với tỷ phú Phạm Nhật Vượng từ thời '
+             'khởi nghiệp ở Đông Âu. Hồi tháng 2 năm nay, bà Ánh Xuân được '
+             'được Vinhomes bổ nhiệm vào vị trí này là thay cho bà Nguyễn Diệu '
+             'Linh, người đảm nhiệm ghế Chủ tịch HĐQT, thay thế tỷ phú Phạm '
+             'Nhật Vượng. Như vậy là trong vòng khoảng nửa năm qua, Công ty Cổ '
+             'phần Vinhomes, đã có một loạt thay đổi nhân sự cấp cao. Vingroup '
+             'và tỉ phú Phạm Nhật Vượng: Ngưỡng mộ, lo ngạiVinfast và hình ảnh '
+             'quốc giaThủ tướng Việt Nam thăm kỳ tích ô tô VinFastThông tin '
+             'giới thiệu về Vinhomes nói những nhân vật kể trên trong bộ máy '
+             'điều hành Vinhomes này đều đã có khoảng 15 năm kinh nghiệm làm '
+             'việc cho Vingroup. Một số nhà quan sát mô tả Vingroup trả lương '
+             'cao hẳn mặt bằng thị trường để mướn người có năng lực. Nhưng mặt '
+             'khác, nhân sự tại đây cũng chịu áp lực công việc nặng nề, tương '
+             'ứng với mức lương cao mà họ nhận. Trong tháng này, Tập đoàn '
+             'Vingroup thông báo về kế hoạch thành lập hãng hàng không '
+             'Vinpearl Air, một trong ít nhất bốn đơn vị được mô tả là đang '
+             'xếp hàng chờ cấp phép bay kể cả Thiên Minh, Vietstar và '
+             'Vietravel Airlines. Một nguồn muốn ẩn danh của Vietnam Airlines '
+             'nói với BBC rằng Vingroup đã bắt đầu chào thu nhập cao gấp đôi '
+             'gấp ba cho các vị trí chuyên viên cấp quản l\u200eý của hãng '
+             'Hàng không Quốc gia để chuẩn bị về nhân sự. Vào đầu tháng này, '
+             'Hãng xếp hạng tín nhiệm Fitch Ratings cho biết ngừng đánh giá '
+             'với Vingroup vì tập đoàn tư nhân Việt Nam dừng tham gia vào quá '
+             'trình đánh giá. Trong một diễn biến độc lập, vào tháng Sáu, báo '
+             'The Financial Times có bài viết về tập đoàn tư nhân đa lĩnh vực '
+             'hàng đầu của Việt Nam, trong đó, ký giả chuyên về Đông Nam Á '
+             'John Reed, trưởng văn phòng Bangkok của tờ báo Anh, gọi Vingroup '
+             'là một đế chế đang trỗi dậy nhưng cũng hàm chứa nhiều dấu hỏi về '
+             'sự cất cánh này. Bài báo được ra chưa đầy hai tuần sau khi '
+             'truyền thông trong nước tràn ngập hình ảnh giới lãnh đạo Việt '
+             'Nam thăm Nhà máy sản xuất ô tô VinFast trong sự kiện khánh thành '
+             'sau hơn 20 tháng xây dựng. Thủ tướng Nguyễn Xuân Phúc được dẫn '
+             'lời nói tại sự kiện này rằng Xây dựng được những thương hiệu '
+             'Việt mạnh chính là phát huy mạnh mẽ lòng yêu nước, ý chí tự lực, '
+             'tự cường, tự tôn dân tộc và xây dựng văn hóa tiêu dùng của người '
+             'Việt Nam. Tác giả John Reed từ Financial Times mô tả điều ông '
+             'gọi là VinFast đang đặt cược là vài triệu người trong dân số 100 '
+             'triệu người Việt Nam sẽ sớm đặt mua những chiếc xe hơi đầu tiên '
+             'của họ. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48992711'}
+2019-07-18 17:16:46 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48891560
+2019-07-18 17:16:46 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:47 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48891560 HTTP/1.1" 200 36814
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:48 [readability.readability] DEBUG: Branch 288.880 .story-body>.story-body__inner link density 0.029 -> 280.539
+2019-07-18 17:16:48 [readability.readability] DEBUG: Branch 159.440 .column--primary>.story-body link density 0.029 -> 154.868
+2019-07-18 17:16:48 [readability.readability] INFO: Top 5 : 280.539 .story-body>.story-body__inner
+2019-07-18 17:16:48 [readability.readability] INFO: Top 5 : 154.868 .column--primary>.story-body
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removed 280.539 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:48 [readability.readability] DEBUG: Removed 280.539 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:48 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48891560>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Jeff Bezos xy dng  ch Amazon nh th no? - BBC News Ting Vit',
+ 'newsText': ' Có lẽ Jeff Bezos đã có một quả cầu pha lê. 25 năm trước, ông đã '
+             'thấy trước một tương lai rằng chỉ với một cú nhấp chuột, nó sẽ '
+             'đem đến cho chúng ta bất cứ thứ gì, từ thức ăn vật cho mèo cho '
+             'món đến trứng cá muối; và các trung tâm thương mại sẽ mờ nhạt '
+             'dần, các cửa hàng sẽ phải cung cấp dịch vụ giải trí hoặc sản '
+             'phẩm tiện lợi để tồn tại. Và ông đã xây dựng một đế chế dựa trên '
+             'những hình ảnh đó. Jeff Bezos: Người giàu nhất thế giới ly '
+             'hônGoogle, Amazon và Facebook có nên sợ phụ nữ này?Amazon thử '
+             'nghiệm robot giao hàngAmazon, doanh nghiệp bán lẻ trực tuyến mà '
+             'ông thành lập năm 1994, đã trở thành công ty nghìn tỷ đô la thế '
+             'giới vào tháng 9/2018 (chỉ bị Apple vượt mặt trong gang tấc), '
+             'chuyển đổi từ một nhà sách cũ trực tuyến thành thị trường giao '
+             'dịch toàn cầu. Nhưng Bezos, hiện là người giàu nhất thế giới, '
+             'tuyên bố ông có mục tiêu cao hơn là chỉ định hình lại thị trường '
+             'bán lẻ thế giới. Ông sở hữu tư nhân tờ báo Washington Post. Công '
+             'ty hàng không vũ trụ của ông, Blue Origin, đặt mục tiêu đưa '
+             'thiết bị và con người lên Mặt trăng vào năm 2024. Vào tháng '
+             '9/2018, ông đã cam kết sẽ tài trợ 2 tỷ đô la cho một mạng lưới '
+             'trường mầm non và giải quyết tình trạng vô gia cư ở Mỹ (mặc dù '
+             'đây là một phần trong kế hoạch làm từ thiện của vợ cũ của ông, '
+             'bà Mackenzie Bezos, người thậm chí đã muốn đóng góp 37 tỷ đô la '
+             'tài sản của bà). Cách đây nhiều năm, bạn gái thời trung học của '
+             'Bezos đã nói với Wired rằng cô luôn biết rằng anh sẽ kiếm được '
+             'tiền, theo đuổi giấc mơ khám phá ngoài vũ trụ. Vấn đề không phải '
+             'là về tiền. Mà là về những gì anh ấy sẽ làm với nó, về việc thay '
+             'đổi tương lai, cô nói với tờ tạp chí. Thuộc địa không gianTham '
+             'vọng của Jeff Bezos đã xuất hiện từ nhiều thập kỷ trước. Là con '
+             'của một cặp cha mẹ tuổi teen đã ly dị, anh được mẹ Jackie nuôi '
+             'dưỡng phần lớn ở Texas và Florida, cùng với cha dượng Mike '
+             'Bezos, một giám đốc điều hành của hãng Exxon, người gốc Cuba, '
+             'vốn rời Cuba thì còn thanh thiếu niên sau khi Fidel Castro lên '
+             'nắm quyền. Ông đã sớm có thiên hướng về kỹ thuật và khoa học, tự '
+             'tháo dỡ chiếc cũi của mình bằng tuốc nơ vít khi mới ba tuổi, '
+             'theo một quyển sách tiểu sử năm 2013 của Brad Stone. Trong bài '
+             'phát biểu tốt nghiệp trung học, Bezos đã vạch ra một tầm nhìn '
+             'cho việc thiết lập các thuộc địa ngoài vũ trụ. Tại Đại học '
+             'Princeton, Bezos học ngành kỹ thuật và khoa học máy tính, sau đó '
+             'sử dụng các kỹ năng của mình tại các công ty tài chính ở New '
+             'York. Chính tại đó, ông đã gặp vợ cũ của mình, khi đang làm việc '
+             'tại quỹ phòng hộ DE Shaw. Ở tuổi 30, ông bỏ việc sau khi đọc qua '
+             'một thống kê về sự phát triển nhanh chóng của internet. Trong '
+             'bài phát biểu năm 2010 tại Princeton, Bezos đã nhắc lại quyết '
+             'định của mình về việc trở về miền Tây Mỹ và bắt đầu Amazon là '
+             'con đường mạo hiểm. Tôi quyết định tôi phải thử. Tôi không nghĩ '
+             'mình sẽ hối hận vì đã cố gắng và thất bại. Và tôi nghi rằng mình '
+             'sẽ luôn bị ám ảnh bởi quyết định không thử làm điều đó, ông nói. '
+             'Vua thương mại điện tửCanh bạc của Bezos, được góp vốn với hơn '
+             '100. 000 đô la tiền từ cá nhân và gia đình, đã nhanh chóng đền '
+             'đáp. Trong vòng một tháng kể từ khi Amazon ra mắt (1995), nó đã '
+             'chuyển đơn đặt hàng đến tất cả 50 tiểu bang của Hoa Kỳ và 45 '
+             'quốc gia khác nhau, theo cuốn sách của Stone, The Things Store: '
+             'Jeff Bezos và Age of Amazon. Trong 5 năm đầu tiên của Amazon, số '
+             'lượng khách hàng đã tăng vọt từ 180. 000 đến 17 triệu. Doanh số '
+             'tăng vọt từ 511. 000 đô la lên hơn 1,6 tỷ đô la. Các nhà đầu tư '
+             'tên tuổi đổ xô đến công ty giữa làn sóng dot com đầu tiên bùng '
+             'lên. Vào năm 1997, Amazon huy động được 54 triệu đô la và biến '
+             'Bezos, người từng tự tay đóng gói các đơn hàng sách, trở thành '
+             'một trong những người đàn ông giàu nhất thế giới trước tuổi 35. '
+             'Năm 1999, Tạp chí Time nói ông là một trong những người trẻ nhất '
+             'từ \u200b\u200btrước đến nay được mệnh danh là Người của năm và '
+             'gọi ông là vua của thương mại điện tử. Thử nghiệmĐược biết đến '
+             'là một ông chủ kỹ tính, Bezos đã đưa Amazon đi đến một chiến '
+             'lược dài hạn và tập trung vào khách hàng. Trong thực tế, điều đó '
+             'có nghĩa là công ty sẵn sàng chi tiền để kiếm tiền, đôi khi từ '
+             'bỏ lợi nhuận hàng năm khi giảm giá, giao hàng miễn phí và dành '
+             'nhiều năm để phát triển các thiết bị mới như máy đọc sách điện '
+             'tử Kindle. Nhưng Amazon cũng không ngần ngại tiết kiệm ở những '
+             'nơi có thể, khiến nhân viên trụ sở phải trả tiền đỗ xe, chiến '
+             'đấu với các nhà cung cấp, phản đối nỗ lực tổ chức các công đoàn '
+             'lao động tại kho của mình và tránh thuế càng nhiều càng tốt. '
+             'Công ty đã trải qua một số thất bại, như đầu tư sớm vào các '
+             'trang web như Pets. com mà sau đó bị mất tiền. Nhưng ngày nay, '
+             'ngay cả những thứ đó trông giống như một dấu hiệu của tinh thần '
+             'cạnh tranh không ngừng và sẵn sàng thử nghiệm. Amazon dùng gói '
+             'hàng giả để bắt kẻ trộm Vợ cũ ông chủ Amazon hiến nửa tài sản '
+             "cho từ thiệnBình luận về tin Amazon 'vào Việt Nam'Amazon có "
+             'doanh thu hơn 230 tỷ đô la vào năm 2018 và tuyển dụng gần 650. '
+             '000 người trên toàn thế giới. Nó cung cấp dịch vụ hậu cần, lưu '
+             'trữ, cho vay và nền tảng bán hàng cho hàng trăm nghìn thương '
+             'nhân bên thứ ba. Bộ phận điện toán đám mây của nó lưu giữ những '
+             'khối lượng thông tin khổng lồ của thế giới doanh nghiệp trên các '
+             'máy chủ dữ liệu. Amazon cung cấp xương sống cho các công ty lớn '
+             'như AirBnB và Netflix cũng như hơn một triệu khách hàng khác '
+             'cùng nhau trao cho Amazon quyền kiểm soát. Chỉ riêng trong năm '
+             'nay, Amazon đã mua cổ phần hoặc mua lại các công ty chuyên về '
+             'robot, quảng cáo và lái xe tự động, cũng như điện toán đám mây. '
+             'Và ban điều hành công ty cho biết họ luôn tìm kiếm các giao dịch '
+             'khác, tham vọng và to lớn hơn. Những phản ứng tiêu cựcSự trỗi '
+             'dậy của Amazon, dẫn đến sự lụi tàn của các nhà bán lẻ Sears, Toy '
+             "'R' Us và Barnes & Noble, đã khiến các nhà phê bình lo ngại về "
+             'sức mạnh độc quyền, vấn đề thuế và hoạt động lao động - thậm chí '
+             'là trách nhiệm của họ trong việc tăng giá bất động sản ở '
+             'Seattle. Amazon đã có kế hoạch đầy tham vọng để xây dựng một trụ '
+             'sở lớn thứ hai ở New York, nhưng đã hủy bỏ kế hoạch này vì sự '
+             'phản đối quyết liệt từ các chính trị gia tiểu bang và địa '
+             'phương. Vấn đề về ưu đãi thuế mà Amazon, một trong những công ty '
+             'thành công nhất thế giới đang được hưởng lợi, là một chủ đề '
+             'chung của giới phê bình. Trước những chỉ trích đó, Bezos đã bắt '
+             'đầu hiện diện công khai nhiều hơn trên Twitter, chia sẻ những '
+             'bức ảnh của cha mẹ và video về những con chó bị trượt chân ở Na '
+             'Uy. Amazon cũng chiến đấu bằng tiền mặt, tăng gấp đôi cho việc '
+             'vận động hành lang kể từ năm 2014 lên khoảng 14,4 triệu đô la '
+             'vào năm ngoái, theo OpenSecrets. org. Lời chỉ trích trên Twitter '
+             'Bất chấp những nỗ lực đó, Amazon có một nhà chỉ trích mà họ '
+             'không dễ thu phục: Tổng thống Mỹ Donald Trump. Ông Trump trên '
+             'Twitter đã cáo buộc Amazon sử dũng mức giá vận chuyển quá thấp '
+             'từ Dịch vụ Bưu chính Hoa Kỳ. Tổng thống Trump cũng thường xuyên '
+             'gắn liền các hoạt động của Amazon với Washington Post, mặc dù tờ '
+             'báo là một khoản đầu tư tư nhân, độc lập của Bezos, người đã mua '
+             'nó vào năm 2013. Với khối tài sản trị giá gần 160 tỷ USD, Bezos '
+             '55 tuổi cũng phải đối mặt với các câu hỏi về hoạt động từ thiện '
+             'tương đối hạn chế của mình. Tháng 9 năm ngoái, người đàn ông '
+             'giàu nhất thế giới tuyên bố sẽ trao 2 tỷ đô la tài trợ cho một '
+             'mạng lưới trường mầm non và giải quyết tình trạng vô gia cư ở '
+             'Mỹ. Nhưng thay vì được hoan nghênh, cam kết của người sáng lập '
+             'Amazon đã gặp phải sự chỉ trích dữ dội. Bezos đã nói rằng cách '
+             'ông tham gia hoạt động từ thiện khác với hoạt động kinh doanh '
+             'của mình, ông tập trung vào hiệu tác động tức thời thay vì những '
+             'cái mang tính lâu dài. Thế giới sẽ chờ xem liệu chiến lược mới '
+             'có còn thành công hay không. Bài viết này đã được chuyển thể từ '
+             'một bài viết gốc của Natalie Sherman, phóng viên mảng kinh '
+             'doanh, New York. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48891560'}
+2019-07-18 17:16:48 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48928414
+2019-07-18 17:16:48 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:50 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48928414 HTTP/1.1" 200 33318
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:50 [readability.readability] DEBUG: Branch 97.350 .story-body>.story-body__inner link density 0.080 -> 89.570
+2019-07-18 17:16:50 [readability.readability] DEBUG: Branch 63.675 .column--primary>.story-body link density 0.078 -> 58.721
+2019-07-18 17:16:50 [readability.readability] INFO: Top 5 : 89.570 .story-body>.story-body__inner
+2019-07-18 17:16:50 [readability.readability] INFO: Top 5 : 58.721 .column--primary>.story-body
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removed 89.570 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:50 [readability.readability] DEBUG: Removed 89.570 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:51 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48928414>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Brexit: Hng BMW ca c rt mt phn ch to khi Anh - BBC News Ting'
+                 b' Vit',
+ 'newsText': ' Hãng BMW của Đức đã di chuyển một bộ phận sản xuất động cơ ra '
+             'khỏi nước Anh do Brexit, hãng Reuters cho hay hôm 09/7/2019. '
+             'Giám đốc sản xuất của hãng xe hơi của Đức cho biết tin trên hôm '
+             'thứ Ba, trong một dấu hiệu nữa về các quyết định mà các công ty '
+             'phải đưa ra để xử lý sự không chắc chắn về việc nước Anh rời '
+             'khỏi Liên minh châu Âu (EU). Anh sẽ rời khỏi khối này vào ngày '
+             '31/10 và Jeremy Hunt và Boris Johnson, cả hai ứng cử viên đang '
+             'cạnh tranh để thay thế Thủ tướng Theresa May, nói họ đã chuẩn bị '
+             'cho việc nước Anh rời đi mà không có thỏa thuận, mặc dù đó không '
+             'phải là lựa chọn ưa thích của họ. Cựu giám đốc tình báo Anh quan '
+             'ngại về BrexitVì sao kinh tế Anh có vẻ tốt bất chấp lo lắng '
+             'Brexit?VN cần Anh tham gia tái cơ cấu doanh nghiệp nhà nước Việt '
+             'Nam: Cần minh bạch tài sản trước khi cổ phần hóa Ngành công '
+             'nghiệp xe hơi, đều sụt giảm doanh số, sản xuất và đầu tư kể từ '
+             'năm 2017, lo lắng rằng một sự rút khỏi EU vô trật tự có thể dẫn '
+             'đến mức thuế lên tới 10%, chưa kể các vấn đề về thủ tục hành '
+             'chính và nhiều chi phí khác. Các hiệp định thương mại tự do cũng '
+             'thường yêu cầu một hàm lượng địa phương tối thiểu vào khoảng từ '
+             '55 đến 60% với các cấu phần chế tạo của Anh được tính cùng với '
+             "các bộ phận, phụ tùng khác của Liên minh châu Âu hiện nay. 'Có "
+             "thể thay đổi'Điều đó có thể thay đổi vào cuối năm nay tùy thuộc "
+             'vào bản chất của Brexit, vẫn theo hãng tin Anh. Các động cơ của '
+             'Anh đã được gửi đến Nam Phi, nơi BMW hiện đang chế tạo xe hơi '
+             'X3, nhưng họ sẽ không còn có tư cách EU và những chiếc xe sẽ mất '
+             'tình trạng nhập khẩu miễn thuế vào châu Âu, giám đốc sản xuất '
+             'Oliver Zipse cho biết hôm thứ ba, 09/7. Hams Hall (nhà máy chế '
+             'tạo động cơ) không xây dựng bất kỳ sản phẩm nào ở Nam Phi nữa, '
+             'điều này tất nhiên là không tốt cho nước Anh, người có thể trở '
+             'thành tân giám đốc điều hành của công ty được các nguồn tin dẫn '
+             'thuật. Đây không phải là một khối lượng lớn, ông nói thêm. Một '
+             'phát ngôn viên của BMW cùng lúc nói sản lượng tại nhà máy Hams '
+             'Hall của Anh sẽ ổn định trong năm nay và nhà máy sẽ xuất khẩu '
+             'nhiều hơn sang Hoa Kỳ, Reuters cho hay. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48928414'}
+2019-07-18 17:16:51 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-48868388
+2019-07-18 17:16:51 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:51 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-48868388 HTTP/1.1" 200 33134
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch 104.170 .story-body>.story-body__inner link density 0.061 -> 97.814
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch 67.085 .column--primary>.story-body link density 0.060 -> 63.072
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch  7.230 .fb-post>blockquote.fb-xfbml-parse-ignore link density 0.194 ->  5.827
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch 32.115 .embed-region.facebook-wrap>.fb-post link density 0.194 -> 25.881
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch  7.210 .fb-post>blockquote.fb-xfbml-parse-ignore link density 0.182 ->  5.899
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch 32.105 .embed-region.facebook-wrap>.fb-post link density 0.182 -> 26.268
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch  7.250 .embed.embed-facebook>.embed-region.facebook-wrap link density 0.272 ->  5.278
+2019-07-18 17:16:51 [readability.readability] DEBUG: Branch  6.125 .social-embed-post.social-embed-facebook>.embed.embed-facebook link density 0.265 ->  4.500
+2019-07-18 17:16:51 [readability.readability] INFO: Top 5 : 97.814 .story-body>.story-body__inner
+2019-07-18 17:16:51 [readability.readability] INFO: Top 5 : 63.072 .column--primary>.story-body
+2019-07-18 17:16:51 [readability.readability] INFO: Top 5 : 26.268 .embed-region.facebook-wrap>.fb-post
+2019-07-18 17:16:51 [readability.readability] INFO: Top 5 : 25.881 .embed-region.facebook-wrap>.fb-post
+2019-07-18 17:16:51 [readability.readability] INFO: Top 5 :  5.899 .fb-post>blockquote.fb-xfbml-parse-ignore
+2019-07-18 17:16:51 [readability.readability] DEBUG: Not removing .embed-region.facebook-wrap>.fb-post of length 165: Vụ các doanh nghiệp dệt may Việt đình cô...
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed  4.500 .embed.embed-facebook>.embed-region.facebook-wrap with weight 0 cause it has too many links 0.272 for its weight 0.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed  0.000 .social-embed-post.social-embed-facebook>.embed.embed-facebook with weight 0 cause it has too short content length 5 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed  0.000 .social-embed>.social-embed-post.social-embed-facebook with weight 25 cause it has too short content length 5 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed 97.814 .story-body__inner>.social-embed with weight 0 cause it has too short content length 2 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Not removing .embed-region.facebook-wrap>.fb-post of length 170: HÀNG VIỆT ƠI...\nTrong vụ việc cụ thể mớ...
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed  0.000 .embed.embed-facebook>.embed-region.facebook-wrap with weight 0 cause it has too many links 0.277 for its weight 0.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed  0.000 .social-embed-post.social-embed-facebook>.embed.embed-facebook with weight 0 cause it has too short content length 5 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed  0.000 .social-embed>.social-embed-post.social-embed-facebook with weight 25 cause it has too short content length 5 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed 97.814 .story-body__inner>.social-embed with weight 0 cause it has too short content length 2 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed 97.814 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:51 [readability.readability] DEBUG: Removed 97.814 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:16:52 [root] INFO: News Article inserted to MongoDB database!
+2019-07-18 17:16:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.bbc.com/vietnamese/business-48868388>
+{'author': b'https://www.facebook.com/bbcnews',
+ 'newsHeadline': b'Tranh ci Big C: B Cng thng Vit Nam gii thch - BBC News Ting '
+                 b'Vit',
+ 'newsText': ' Hôm 4/7, Thứ trưởng Công thương Việt Nam Đỗ Thắng Hải nói đã '
+             'làm việc với Central Group, Thái Lan để bảo vệ quyền lợi doanh '
+             'nghiệp Việt Nam. EVFTA và lời tư vấn cho lãnh đạo Việt NamXã hội '
+             'dân sự VN sau lễ ký EVFTAHệ thống siêu thị Big C ở Việt Nam, '
+             'thuộc sở hữu của Central Group, Thái Lan, hôm 3/7 cũng ra thông '
+             'cáo báo chí. Thông cáo đưa ra trong lúc có tranh cãi có phải Big '
+             'C ngừng làm việc với các nhà cung cấp may mặc Việt Nam. Ông Đỗ '
+             'Thắng Hải cho hay: Tại buổi làm việc ngày hôm nay giữa Bộ Công '
+             'Thương, doanh nghiệp và có sự chứng kiến của đại sứ quán Thái '
+             'Lan tại việt Nam, Big C cho biết hệ thống siêu thị này đang cấu '
+             'trúc lại ngành hàng may mặc nên mới có việc tạm dừng mua hàng '
+             'dệt may tại Việt Nam trong thời gian 15 ngày. Hiện, Central '
+             'Group đã gửi thư cho các đối tác về việc tạm dừng mua này, các '
+             'đơn hàng trước đó vẫn được tiếp tục thực hiện, Thứ trưởng cho '
+             'biết. Thông cáo của Big C nói: Big C Việt Nam đang phát triển '
+             'các thương hiệu mới. Big C Việt Nam đã và đang thực hiện quá '
+             'trình phát triển này trong chuỗi bán lẻ của mình. Cách tiếp cận '
+             'tương tự được áp dụng cho ngành hàng may mặc. Để bảo đảm mô hình '
+             'kinh doanh mới này có thể phát triển thành công, Big C Việt Nam '
+             'đang xây dựng lộ trình cụ thể để hiện thực hóa kế hoạch này. Tìm '
+             'kiếm các nguồn cung ứng là nhà cung cấp Việt Nam luôn là ưu tiên '
+             'hàng đầu trong kế hoạch phát triển đó. Big C Việt Nam đang xem '
+             'xét lại danh mục hàng hóa và tính khả thi từ nhà cung cấp nhằm '
+             'đem đến các sản phẩm Việt Nam chất lượng cao nhất để phục vụ '
+             'khách hàng. Tạm thời?Big C nói họ đang trong quá trình xem xét '
+             'cùng với hơn 200 nhà cung cấp hàng may mặc để phát triển các sản '
+             'phẩm với chất lượng tốt nhất nhằm thỏa điều kiện không chỉ cho '
+             'thị trường trong nước mà còn hướng tới xuất khẩu sang các thị '
+             'trường tiềm năng. Việc tạm dừng các đơn đặt hàng chỉ là tạm thời '
+             'và Big C Việt Nam khẳng định không dừng hoạt động kinh doanh của '
+             'ngành hàng may mặc tại Việt Nam. Thứ trưởng Đỗ Thắng Hải nêu '
+             'quan điểm giải quyết của Big C với hơn 200 doanh nghiệp hàng dệt '
+             'may là việc của doanh nghiệp, và phải giải quyết trên cơ sở hợp '
+             'đồng đã ký với các nhà cung cấp Việt Nam và tuân thủ các quy '
+             'định pháp luật khác của Việt Nam. Hướng giải quyết hiện tại, '
+             'bước đầu, Big C đã cam kết ngay trong ngày hôm nay sẽ mở lại đơn '
+             'hàng cho 50/200 nhà cung cấp sản phẩm dệt may, và sẽ mở lại toàn '
+             'bộ trong 15 ngày tới, Thứ trưởng nói. Hôm 2/7, dư luân xôn xao '
+             'vì tin Big C nói sẽ ngừng đặt hàng của các đối tác cung cấp hàng '
+             'may mặc Việt Nam. Phản ứng trên FacebookTranh cãi đã tạo ra '
+             'nhiều bình luận trên Facebook. ',
+ 'newsUrl': 'https://www.bbc.com/vietnamese/business-48868388'}
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48730592> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48691359> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48718879> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48771720> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48784455> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48768150> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48559499> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.bbc.com/vietnamese/business-48581610> (referer: https://www.bbc.com/vietnamese/business)
+2019-07-18 17:16:52 [root] INFO: Parsing URL: https://www.bbc.com/vietnamese/business-49004126
+2019-07-18 17:16:52 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.bbc.com:443
+2019-07-18 17:16:54 [urllib3.connectionpool] DEBUG: https://www.bbc.com:443 "GET /vietnamese/business-49004126 HTTP/1.1" 200 36242
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - header#orb-banner>#orb-header.orb-nav-pri.orb-nav-pri-white.orb-nav-empty
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .container-width-only>#bbccom_sponsor_section_1_2_3_4.bbccom_slot
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .story-body>.with-extracted-share-icons
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--messengerdesktop.twite__channel-click-extracted--messengerdesktop.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengerdesktop
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengerdesktop>span.extracted__icon.extracted__icon--messengerdesktop
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengerdesktop>svg.extracted-svg.ex-messengerdesktop
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--desktop.twite__channel-out--email.twite__channel-click-extracted--email.twite__list-elements>a.extracted__channel-link.extracted__channel-link--email
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--email>span.extracted__icon.extracted__icon--email
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--email>svg.extracted-svg.ex-email
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--facebook.twite__channel-click-extracted--facebook.twite__list-elements>a.extracted__channel-link.extracted__channel-link--facebook
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--facebook>span.extracted__icon.extracted__icon--facebook
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--facebook>svg.extracted-svg.ex-facebook
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--whatsapp.twite__channel-click-extracted--whatsapp.twite__list-elements>a.extracted__channel-link.extracted__channel-link--whatsapp
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--whatsapp>span.extracted__icon.extracted__icon--whatsapp
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--whatsapp>svg.extracted-svg.ex-whatsapp
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--messengermobile.twite__channel-click-extracted--messengermobile.twite__list-elements>a.extracted__channel-link.extracted__channel-link--messengermobile
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--messengermobile>span.extracted__icon.extracted__icon--messengermobile
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--messengermobile>svg.extracted-svg.ex-messengermobile
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.sharetools>li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - li.twite__channel-out.twite__channel-out--mobile.twite__channel-out--twitter.twite__channel-click-extracted--twitter.twite__list-elements>a.extracted__channel-link.extracted__channel-link--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.extracted__channel-link.extracted__channel-link--twitter>span.extracted__icon.extracted__icon--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - span.extracted__icon.extracted__icon--twitter>svg.extracted-svg.ex-twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.twite__channels>li.twite__channel.twite__channel--twitter.twite__channel-click--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - a.twite__channel-link>span.twite__icon.twite__icon--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul.share__tools.share__tools--lightweight>li.share__tool.share__tool--twitter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .group.story-alsos.more-on-this-story>.group__header
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .unit__body>.unit__header
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - #site-container>#core-navigation.navigation--footer
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - #core-navigation.navigation--footer>h2.navigation--footer__heading
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .direction>#orb-footer.orb-footer
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - #orb-aside.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>h2.orb-footer-lead
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - .orb-footer-inner>.orb-footer-primary-links
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - #orb-contentinfo.orb-nav-sec.b-r.b-g-p>.orb-footer-inner
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-terms
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-about
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-privacy
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-cookies
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-accessibility
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-parental
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-contact
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - ul>li.orb-footer-newsletter
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removing unlikely candidate - small>span.orb-footer-links
+2019-07-18 17:17:27 [readability.readability] DEBUG: Branch 311.460 .story-body>.story-body__inner link density 0.039 -> 299.339
+2019-07-18 17:17:27 [readability.readability] DEBUG: Branch 170.730 .column--primary>.story-body link density 0.039 -> 164.141
+2019-07-18 17:17:27 [readability.readability] INFO: Top 5 : 299.339 .story-body>.story-body__inner
+2019-07-18 17:17:27 [readability.readability] INFO: Top 5 : 164.141 .column--primary>.story-body
+2019-07-18 17:17:27 [readability.readability] DEBUG: Not removing .story-body__inner>ul.story-body__unordered-list of length 169: \n\nKhông tập quyền (decentralization)\...
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removed 299.339 .story-body__inner>#bbccom_mpu_1_2.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.
+2019-07-18 17:17:27 [readability.readability] DEBUG: Removed 299.339 .story-body__inner>#bbccom_mpu_3.bbccom_slot.mpu-ad with weight 0 cause it has too short content length 11 without a single image.

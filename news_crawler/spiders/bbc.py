@@ -99,11 +99,11 @@ class BbcSpider(CrawlSpider):
         self.ruleFile['language'] = lang
 
         if (self.language == 'vn'):
-            self.ruleFile['start_urls'] = ["https://www.bbc.com/vietnamese/"]
-            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/vietnamese/*"]
+            self.ruleFile['start_urls'] = ["https://www.bbc.com/vietnamese/business/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/vietnamese/business*"]
         elif (self.language == 'zh'):
-            self.ruleFile['start_urls'] = ["https://www.bbc.com/zhongwen/simp/"]
-            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/zhongwen/simp/*"]
+            self.ruleFile['start_urls'] = ["https://www.bbc.com/zhongwen/simp/business/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/zhongwen/simp/business*"]
 
         # URL to start web scraping.
         self.start_urls = self.ruleFile['start_urls']

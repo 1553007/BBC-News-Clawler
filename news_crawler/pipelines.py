@@ -23,17 +23,18 @@ class NewsCrawlerPipeline(object):
 
 remove_words = [
     "\\n",
+    "\"",
+    "\\t",
+    "[", "]", "‘", "’",
     "Media playback is unsupported on your device",
     "Media caption",
     "Image copyright",
-    "Getty Images",
     "Images caption",
     "Image caption",
     "Read more",
-    "\"",
-    "\'",
-    "Bản quyền hình ảnh"
-    ]
+    "Getty Images",
+    u"Bản quyền hình ảnh"
+]
 
 class NewsTextPipeline(object):
     '''
@@ -60,20 +61,25 @@ class NewsTextPipeline(object):
             h = html2text.HTML2Text()
             h.ignore_links = True
 
-            # articleText    =  h.handle(content)
-            # articleText    =  articleText.replace('\r', ' ').replace('\n', ' ').strip()
-            # articleText = re.sub(' +', ' ', articleText)
-            # articleText = re.sub('\\n', '', articleText)
-
             soup = BeautifulSoup(content, "html.parser")
-            articleText2 = soup.get_text().replace(u'\xa0', u' ')
-            for word in remove_words:
-                articleText2 = articleText2.replace(word, "") 
-            articleText2 = articleText2.replace("\\'", "'") 
-            articleText2 = re.sub(" +", " ", articleText2) # remove spaces
+
+            tags_to_delete = soup.findAll('figure')
+            for tag in tags_to_delete:
+                tag.extract()
+
+            articleText = soup.get_text(" ").replace(u'\xa0', u' ')
             
-            if (len(articleText2) >= 20):
-                item['newsText'] = articleText2
+            if (articleText != ""):
+                articleText = articleText.replace("\\'", "'")
+
+                for word in remove_words:
+                    if word in articleText:
+                        articleText = articleText.replace(word, u"")
+
+                articleText = re.sub(" +", " ", articleText) # remove multi-spaces
+                
+                if (len(articleText) >= 20):
+                    item['newsText'] = articleText
         except Exception:
             raise DropItem("Failed to extract article text from: " + item['newsUrl'])  
         return item
@@ -180,10 +186,10 @@ class MongoDBPipeline(object):
             os.mknod(filename)
 
         myfile = open(filename, "a", encoding='utf-8')
-        sentences = list(map(str.strip, re.split(r"[.!?](?!$)", item['newsText'])))
+        sentences = list(map(str.strip, re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s", item['newsText'])))
         for each_sentence in sentences:
             if (len(each_sentence) >= 20):
-                myfile.write(each_sentence.lstrip() + ".\n")
+                myfile.write(each_sentence.lstrip() + "\n")
         myfile.close()
         return item
 

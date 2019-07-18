@@ -1,9 +1,26 @@
 import re
 
+remove_words = [
+    "Media playback is unsupported on your device",
+    "Media caption",
+    "Image copyright",
+    "Images caption",
+    "Image caption",
+    "Read more",
+    "Getty Images",
+    "Bản quyền hình ảnh",
+    "\\n",
+    "\"",
+    "\\t",
+    "[", "]"
+]
+
 if __name__ == "__main__":
-    infile = open("Output/bbc_eng - temp.txt")
+    infile = open("Output/bbc_vn.txt", "r", encoding='utf-8')
     for line in infile:
-        text = re.sub(r'''(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))''', " ", line)
-        with open("Output/bbc_eng_edited.txt", "a") as outfile:
-                outfile.write(text)
+        for word in remove_words:
+            if word in line:
+                print(word)
+                print(line)
+                print(line.replace(word, "***"))
     infile.close()

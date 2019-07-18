@@ -2,11 +2,11 @@
 	"allowed_domains" : ["bbc.com"],
 	"language": ["en"],
 	"start_urls": [
-		"https://www.bbc.com/news/"
+		"https://www.bbc.com/news/business/"
 	],
 	"rules": [
 		{
-			"allow": ["https://www.bbc.com/news/*"],
+			"allow": ["https://www.bbc.com/news/business*"],
 			"follow": true,
 			"callback": "parseItems"
 		}
