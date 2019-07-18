@@ -1,12 +1,12 @@
 {
-	"allowed_domains" : ["bbc.com"],
+	"allowed_domains" : ["bbc.com", "e.vnexpress.net", "thanhniennews.com"],
 	"language": ["en"],
 	"start_urls": [
-		"https://www.bbc.com/news/"
+		"https://www.bbc.com/news/business", "https://e.vnexpress.net/news/business", "http://www.thanhniennews.com/business"
 	],
 	"rules": [
 		{
-			"allow": ["https://www.bbc.com/news/*"],
+			"allow": ["https://www.bbc.com/news/business*", "https://e.vnexpress.net/news/business*", "http://www.thanhniennews.com/business*"],
 			"follow": true,
 			"callback": "parseItems"
 		}

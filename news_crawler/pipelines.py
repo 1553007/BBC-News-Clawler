@@ -25,7 +25,7 @@ remove_words = [
     "\\n",
     "\"",
     "\\t",
-    "[", "]", "‘", "’",
+    "[", "]", "‘", "’", "·"
     "Media playback is unsupported on your device",
     "Media caption",
     "Image copyright",

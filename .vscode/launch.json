@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "module": "scrapy",
-            "args": ["crawl","bbc","-a","lang=en"]
+            "args": ["crawl","bbc","-a","lang=vn"]
         }
     ]
 }
