@@ -181,10 +181,7 @@ class MongoDBPipeline(object):
             filename = "Output/bbc_vn.txt"
         elif (spider.language == 'zh'):
             filename = "Output/bbc_zh.txt"
-
-        if not os.path.exists(filename):
-            os.mknod(filename)
-
+        
         myfile = open(filename, "a", encoding='utf-8')
         sentences = list(map(str.strip, re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s", item['newsText'])))
         for each_sentence in sentences:
