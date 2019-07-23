@@ -1,0 +1,27 @@
+{
+	"allowed_domains" : ["bbc.com", "e.vnexpress.net", "thanhniennews.com"],
+	"language": ["en"],
+	"start_urls": [
+		"https://www.bbc.com/news/business", "https://e.vnexpress.net/news/business", "http://www.thanhniennews.com/business"
+	],
+	"rules": [
+		{
+			"allow": ["https://www.bbc.com/news/business*", "https://e.vnexpress.net/news/business*", "http://www.thanhniennews.com/business*"],
+			"follow": true,
+			"callback": "parseItems"
+		}
+	],
+	"paths": {
+		"title" : ["//title/text()"],
+        "author": ["//meta[@property='article:author']/@content", "//meta[@name='author']/@content"]
+	}
+}
+
+
+if (self.language == 'vn'):
+            self.ruleFile['allowed_domains'] = ["vnexpress.net", "thanhnien.vn", "bbc.com"],
+            self.ruleFile['start_urls'] = ["https://vnexpress.net/kinh-doanh", "https://thanhnien.vn/tai-chinh-kinh-doanh/", "https://www.bbc.com/vietnamese/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://vnexpress.net/kinh-doanh*", "https://thanhnien.vn/tai-chinh-kinh-doanh*", "https://www.bbc.com/vietnamese/*"]
+        elif (self.language == 'zh'):
+            self.ruleFile['start_urls'] = ["https://www.bbc.com/zhongwen/simp/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/zhongwen/simp/*"]

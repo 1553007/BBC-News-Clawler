@@ -99,9 +99,9 @@ class BbcSpider(CrawlSpider):
         self.ruleFile['language'] = lang
 
         if (self.language == 'vn'):
-            self.ruleFile['allowed_domains'] = ["vnexpress.net", "thanhnien.vn", "bbc.com"],
-            self.ruleFile['start_urls'] = ["https://vnexpress.net/kinh-doanh", "https://thanhnien.vn/tai-chinh-kinh-doanh/", "https://www.bbc.com/vietnamese/"]
-            self.ruleFile['rules'][0]['allow'] = ["https://vnexpress.net/kinh-doanh*", "https://thanhnien.vn/tai-chinh-kinh-doanh*", "https://www.bbc.com/vietnamese/*"]
+            self.ruleFile['allowed_domains'] = ["bbc.com"],
+            self.ruleFile['start_urls'] = ["https://www.bbc.com/vietnamese/"]
+            self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/vietnamese/*"]
         elif (self.language == 'zh'):
             self.ruleFile['start_urls'] = ["https://www.bbc.com/zhongwen/simp/"]
             self.ruleFile['rules'][0]['allow'] = ["https://www.bbc.com/zhongwen/simp/*"]
