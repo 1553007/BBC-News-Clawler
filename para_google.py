@@ -6,11 +6,11 @@ infile = open("bbc.en", "r", encoding='utf-8')
 outfile_vi = open("bbc_para.vi", "a", encoding='utf-8')
 outfile_en = open("bbc_para.en", "a", encoding='utf-8')
 
-count = 1
+count = 0
 
 list_lines = list(infile.readlines())
 
-while (count < 3000):
+while (count < 1):
     line = random.choice(list_lines)
     check = True
     while(check):
@@ -27,6 +27,3 @@ while (count < 3000):
     count = count + 1
 
 print("Done.")
-infile.close()
-outfile_vi.close()
-outfile_en.close()

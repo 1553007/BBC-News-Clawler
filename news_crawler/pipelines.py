@@ -58,8 +58,6 @@ class NewsTextPipeline(object):
             response = requests.get(item['newsUrl'])
             doc      = Document(response.text)
             content  = Document(doc.content()).summary()
-            h = html2text.HTML2Text()
-            h.ignore_links = True
 
             soup = BeautifulSoup(content, "html.parser")
 
@@ -82,39 +80,6 @@ class NewsTextPipeline(object):
                     item['newsText'] = articleText
         except Exception:
             raise DropItem("Failed to extract article text from: " + item['newsUrl'])  
-        return item
-
-class NewsCountriesMentionPipeline(object):
-    '''
-    DESCRIPTION:
-    ------------
-    This pipeline is used for extracting list of countries,
-    specified in news article.
-    '''
-    def process_item(self, item, spider):
-        '''
-        DESCRIPTION:
-        -----------
-        For each news item, list of countries specified in news text,
-        is fetched by using 'geograpy'.
-
-        RETURNS:
-        --------
-        News item with 'countriesMentioned' field updated is returned.
-        '''
-        # try:
-        #     places = geograpy.get_place_context(url=item['newsUrl'])
-        #     countryList = []
-        #     for country in places.country_mentions:
-        #         countryList.append(country[0].encode('ascii', 'ignore'))
-        #     item['countriesMentioned'] = countryList
-        # except etree.XMLSyntaxError as e:
-        #     logging.info('XML Syntax Error' + e)
-        # except etree.DocumentInvalid as e:
-        #     logging.info('XML Document Invalid Error'+ e)
-        # except Exception:
-        #     raise DropItem("Failed to extract country mentions from: " + item['newsUrl'])
-
         return item
 
 class DropIfEmptyPipeline(object):
@@ -176,7 +141,7 @@ class MongoDBPipeline(object):
             self.collection.insert(dict(item))
             logging.info('News Article inserted to MongoDB database!')
         
-        filename = "Output/bbc_en.txt"
+        filename = "Output/bbc.en.txt"
         if (spider.language == 'vn'):
             filename = "Output/bbc_vn.txt"
         elif (spider.language == 'zh'):
@@ -188,32 +153,4 @@ class MongoDBPipeline(object):
             if (len(each_sentence) >= 20):
                 myfile.write(each_sentence.lstrip() + "\n")
         myfile.close()
-        return item
-
-class JsonExportPipeline(object):
-    '''
-    DESCRIPTION:
-    -----------
-    * This pipeline is used for exporting the crawling output
-      to a JSON file.
-    * JSON file is generated in output directory.
-    '''
-    def __init__(self):
-        dispatcher.connect(self.spider_opened, signals.spider_opened)
-        dispatcher.connect(self.spider_closed, signals.spider_closed)
-        self.fjsons = {}
-
-    def spider_opened(self, spider):
-        fjson = open('Output/bbc_'+ datetime.now().strftime("%Y%m%d%H%M%S") + '.json', 'wb')
-        self.fjsons[spider] = fjson
-        self.exporter = JsonItemExporter(fjson)
-        self.exporter.start_exporting()
-
-    def spider_closed(self, spider):
-        self.exporter.finish_exporting()
-        fjson = self.fjsons.pop(spider)
-        fjson.close()
-
-    def process_item(self, item, spider):
-        self.exporter.export_item(item)
         return item
