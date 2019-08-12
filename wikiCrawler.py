@@ -31,8 +31,10 @@ def getFirstContent(soup):
             for word in remove_words:
                 if word in articleText:
                     articleText = articleText.replace(word, u"")
-            
-            articleText = re.sub(" +", " ", articleText) # remove multi-spaces
+            # remove the characters between the parentheses and brackets
+            articleText = re.sub("[\(\[].*?[\)\]]", "", articleText)
+            # remove multi-spaces
+            articleText = re.sub(" +", " ", articleText)
             sentences = list(map(str.strip, re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s", articleText)))
             for each_sentence in sentences:
                 if (len(each_sentence) >= 10):
@@ -141,4 +143,11 @@ print(len(unique_words))
 for word in unique_words:
     getContentOnWiki('https://en.wikipedia.org/wiki/' + word)
 
-# getContentOnWiki('https://en.wikipedia.org/wiki/jar')
+# f = open('test.vi', 'r', encoding='utf-8')
+# outfile = open("test.2.vi", "a", encoding='utf-8')
+# for line in f:
+#     # remove the characters between the parentheses and brackets
+#     line = re.sub("[\(\[].*?[\)\]]", "", line)
+#     # remove multi-spaces
+#     line = re.sub(" +", " ", line)
+#     outfile.write(line)
