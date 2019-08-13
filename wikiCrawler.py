@@ -5,7 +5,7 @@ import re, os, json
 from nltk.corpus import stopwords 
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
-from googletrans import Translator
+from mtranslate import translate
 
 remove_words = ["\\n", "\"", "\\t", "[", "]", "‘", "’", "·"]
 stop_words = set(stopwords.words('english')) 
@@ -88,21 +88,13 @@ def getContentOnWiki(link, rec=True):
     fileUrls.close()
     if (link[8:10] == 'vi'):
         link_lang2 = link.replace('https://vi', 'https://en')
-        outfile = open("test.vi", "a", encoding='utf-8')
-        outfile_lang2 = open("test.en", "a", encoding='utf-8')
+        outfile = open("train.vi", "a", encoding='utf-8')
+        outfile_lang2 = open("train.en", "a", encoding='utf-8')
     elif (link[8:10] == 'en'):
-        is_translated = False
-        while (not is_translated):
-            try:
-                is_translated = True
-                translator = Translator()
-                translated_vi = translator.translate(link[30:], src='en', dest='vi').text
-            except Exception as e:
-                print(str(e))
-                print("Cannot translate")
+        translated_vi = translate(link[30:], 'vi')
         link_lang2 = 'https://vi.wikipedia.org/wiki/' + translated_vi
-        outfile = open("test.en", "a", encoding='utf-8')
-        outfile_lang2 = open("test.vi", "a", encoding='utf-8')
+        outfile = open("train.en", "a", encoding='utf-8')
+        outfile_lang2 = open("train.vi", "a", encoding='utf-8')
     else:
         print('No support!')
         return
@@ -138,13 +130,15 @@ for text in data:
         if w not in stop_words: 
             unique_words.add(w)
 
-print(len(unique_words))
+print("Number of nouns: " + len(unique_words))
 
 for word in unique_words:
     getContentOnWiki('https://en.wikipedia.org/wiki/' + word)
 
-# f = open('test.vi', 'r', encoding='utf-8')
-# outfile = open("test.2.vi", "a", encoding='utf-8')
+# getContentOnWiki('https://en.wikipedia.org/wiki/corn')
+
+# f = open('train.vi', 'r', encoding='utf-8')
+# outfile = open("train.2.vi", "a", encoding='utf-8')
 # for line in f:
 #     # remove the characters between the parentheses and brackets
 #     line = re.sub("[\(\[].*?[\)\]]", "", line)
