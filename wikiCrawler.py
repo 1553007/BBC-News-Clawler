@@ -119,6 +119,7 @@ def getContentOnWiki(link, rec=True):
 
 
 # main
+# CHANGE INPUT FILE HERE 'tst2013.en' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 data = [line.strip() for line in open('tst2013.en', 'r', encoding='utf-8')]
 unique_words = set()
 for text in data:
@@ -130,7 +131,7 @@ for text in data:
         if w not in stop_words: 
             unique_words.add(w)
 
-print("Number of nouns: " + len(unique_words))
+print("Number of nouns: " + str(len(unique_words)))
 
 for word in unique_words:
     getContentOnWiki('https://en.wikipedia.org/wiki/' + word)
