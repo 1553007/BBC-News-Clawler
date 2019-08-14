@@ -98,9 +98,9 @@ def getContentOnWiki(link, rec=True):
     else:
         print('No support!')
         return
-    print("Get response from: " + link + " ...")
+    # print("Get response from: " + link + " ...")
     response = requests.get(link)
-    print("Get response from: " + link_lang2 + " ...")
+    # print("Get response from: " + link_lang2 + " ...")
     response_lang2 = requests.get(link_lang2)
     if (response.status_code == 404 or response_lang2.status_code == 404):
         print('No bilingual websites here!')
@@ -113,14 +113,14 @@ def getContentOnWiki(link, rec=True):
     if (getSentences(response, outfile)):
         getSentences(response_lang2, outfile_lang2)
         
-    print("Done.")
+    print("Crawled data from: " + link)
 
 
 
 
 # main
 # CHANGE INPUT FILE HERE 'tst2013.en' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-data = [line.strip() for line in open('tst2013.en', 'r', encoding='utf-8')]
+data = [line.strip() for line in open('bbc.en', 'r', encoding='utf-8')]
 unique_words = set()
 for text in data:
     word_tokens = word_tokenize(text)
@@ -135,6 +135,7 @@ print("Number of nouns: " + str(len(unique_words)))
 
 for word in unique_words:
     getContentOnWiki('https://en.wikipedia.org/wiki/' + word)
+print("Done.")
 
 # getContentOnWiki('https://en.wikipedia.org/wiki/corn')
 
