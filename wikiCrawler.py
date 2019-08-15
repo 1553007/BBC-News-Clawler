@@ -82,7 +82,7 @@ def getContentOnWiki(link, rec=True):
         fileUrls.close()
 
     if str(link) in visitedUrls:
-        print('Visited link!')
+        # print('Visited link!')
         return
 
     fileUrls.close()
@@ -103,7 +103,7 @@ def getContentOnWiki(link, rec=True):
     # print("Get response from: " + link_lang2 + " ...")
     response_lang2 = requests.get(link_lang2)
     if (response.status_code == 404 or response_lang2.status_code == 404):
-        print('No bilingual websites here!')
+        # print('No bilingual websites here!')
         return
         
     visited_file = open("visited_urls.txt", "a", encoding='utf-8')
