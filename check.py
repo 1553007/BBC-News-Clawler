@@ -12,13 +12,13 @@
 # outfile.close()
 
 # check not captipal first word in lines
-outfile = open('train_new.en', "w", encoding='utf-8')
-with open('train.en', 'r', encoding='utf-8') as f:
-    for i, line in enumerate(f):
-        if "{\\" not in line:
-            # print(line)
-            outfile.write(line)
-outfile.close()
+# outfile = open('train_new.en', "w", encoding='utf-8')
+# with open('train.en', 'r', encoding='utf-8') as f:
+#     for i, line in enumerate(f):
+#         if "{\\" not in line:
+#             # print(line)
+#             outfile.write(line)
+# outfile.close()
 
 # line.replace("(c", "")
 # line.replace("﻿", "")

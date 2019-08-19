@@ -82,7 +82,7 @@ def getContentOnWiki(link, rec=True):
         fileUrls.close()
 
     if str(link) in visitedUrls:
-        # print('Visited link!')
+        print('Visited link!')
         return
 
     fileUrls.close()
@@ -120,7 +120,7 @@ def getContentOnWiki(link, rec=True):
 
 # main
 # CHANGE INPUT FILE HERE 'tst2013.en' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-data = [line.strip() for line in open('bbc.en', 'r', encoding='utf-8')]
+data = [line.strip() for line in open('tst2012.en', 'r', encoding='utf-8')]
 unique_words = set()
 for text in data:
     word_tokens = word_tokenize(text)
