@@ -120,21 +120,21 @@ def getContentOnWiki(link, rec=True):
 
 # main
 # CHANGE INPUT FILE HERE 'tst2013.en' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-# data = [line.strip() for line in open('bbc.en', 'r', encoding='utf-8')]
-# unique_words = set()
-# for text in data:
-#     word_tokens = word_tokenize(text)
-#     tags = pos_tag(word_tokens)
-#     nouns = [word for word,pos in tags if (pos == 'NN' or pos == 'NNP' or pos == 'NNS' or pos == 'NNPS')]
-#     for word in nouns:
-#         w = word.lower()
-#         if w not in stop_words: 
-#             unique_words.add(w)
+data = [line.strip() for line in open('bbc.en', 'r', encoding='utf-8')]
+unique_words = set()
+for text in data:
+    word_tokens = word_tokenize(text)
+    tags = pos_tag(word_tokens)
+    nouns = [word for word,pos in tags if (pos == 'NN' or pos == 'NNP' or pos == 'NNS' or pos == 'NNPS')]
+    for word in nouns:
+        w = word.lower()
+        if w not in stop_words: 
+            unique_words.add(w)
 
-# print("Number of nouns: " + str(len(unique_words)))
+print("Number of nouns: " + str(len(unique_words)))
 
-# for word in unique_words:
-#     getContentOnWiki('https://en.wikipedia.org/wiki/' + word)
+for word in unique_words:
+    getContentOnWiki('https://en.wikipedia.org/wiki/' + word)
 
 # links = ['https://en.wikipedia.org/wiki/alchemy']
 # for link in links:
